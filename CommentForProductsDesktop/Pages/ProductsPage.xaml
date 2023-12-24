@@ -1,0 +1,31 @@
+<Page x:Class="CommentForProductsDesktop.Pages.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CommentForProductsDesktop.Pages"
+      mc:Ignorable="d"
+      Title="Продукты" Height="450" Width="800" Loaded="ProductsPage_OnLoaded">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" >
+            <TextBlock HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"> Продукты</TextBlock>
+            <ListView SelectionChanged="ProductsListView_OnSelectionChanged" x:Name="ProductsListView" Width="800" Height="300">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Photo}" Margin="5" Width="50" Height="70"></Image>
+                            <StackPanel Width="600" Orientation="Vertical">
+                                <TextBlock Text="{Binding Name}" Margin="5"></TextBlock>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Description}" Margin="5"></TextBlock>
+                                <TextBlock Text="{Binding IdTypeNavigation.Name}" Margin="5"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="AddButton" Visibility="Collapsed" HorizontalAlignment="Center" Content="Добавить продукт" Click="AddButton_OnClick">
+            </Button>
+            <!-- <Button Click="ButtonBase_OnClick"></Button> -->
+        </StackPanel>
+    </Grid>
+</Page>

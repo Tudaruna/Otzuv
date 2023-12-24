@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="LiveCharts" Version="0.9.7" />
+      <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+      <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+      <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+      <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.3.0" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\comment_icon.png" />
+      <Resource Include="Resources\comment_icon.png" />
+      <None Remove="Resources\camera.png" />
+      <Resource Include="Resources\camera.png" />
+      <None Remove="Resources\Frame 3.icon" />
+      <Resource Include="Resources\Frame 3.icon" />
+    </ItemGroup>
+
+</Project>

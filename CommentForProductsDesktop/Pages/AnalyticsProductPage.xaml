@@ -1,0 +1,46 @@
+<Page x:Class="CommentForProductsDesktop.Pages.AnalyticsProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CommentForProductsDesktop.Pages"
+      xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      mc:Ignorable="d"
+      Title="Статиска продукта" Loaded="AnalyticsProductPage_OnLoaded" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+            <TextBlock FontSize="20" Margin="5" FontWeight="Bold" Text="Аналитика оценок продукта"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Наименование:" FontSize="15"></TextBlock>
+            <TextBlock Text="{Binding Name}" FontSize="15"  FontWeight="Bold"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Средняя оценка:" FontSize="15"></TextBlock>
+                <TextBlock x:Name="SrScoreTextBlock" FontSize="15"  FontWeight="Bold"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <wpf:PieChart x:Name="pieChart" Width="200" Height="200"/>
+                <ListView x:Name="CommentListView" Height="300" Width="500" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Photo}" Margin="5" Width="50" Height="70"></Image>
+                                <StackPanel Width="600" Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Оценка:" Margin="5"></TextBlock>
+                                        <TextBlock Text="{Binding Score}" FontSize="15" FontWeight="Bold" Margin="5"></TextBlock>
+                                    </StackPanel>
+                                    <TextBlock TextWrapping="Wrap"  Text="{Binding TextComment}" Margin="5"></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Комментарий оставлен пользователем " Margin="5" FontSize="10" FontWeight="Thin"></TextBlock>
+                                        <TextBlock Text="{Binding User.Login}" Margin="5" FontSize="10" FontWeight="Thin"></TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
